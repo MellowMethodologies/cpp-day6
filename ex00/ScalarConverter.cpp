@@ -46,6 +46,8 @@ bool is_digits_1(std::string& str)
 			c++;
 			continue;
 		}
+		if (i == str.length() - 1 && str[i] == 'f')
+			continue;
         if (!isdigit(str[i]) &&  str[i] != '.')
             return false;
     } 
@@ -95,7 +97,7 @@ void ScalarConverter::converter(std::string a)
 		printFloat(static_cast<float>(tmp));
 		printDouble(static_cast<double>(tmp));
 	}
-	else if (check_char(a, '.') == 1 && a[a.length() - 1] == 'f' && is_digits_1(a))
+	else if (a[a.length() - 1] == 'f' && is_digits_1(a))
 	{
 		float tmp = std::atof(a.c_str());
 		printChar(static_cast<char>(tmp));
